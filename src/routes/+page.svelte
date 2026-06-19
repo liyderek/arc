@@ -184,7 +184,7 @@
       formStatus = "error";
       return;
     }
-    window.location.href = `mailto:matadorrocketry@mvhs.edu?subject=Message from ${encodeURIComponent(formName)}&body=${encodeURIComponent(formMessage + "\n\nFrom: " + formName + "\nEmail: " + formEmail)}`;
+    window.location.href = `mailto:mvaerospaceengineering@gmail.com?subject=Message from ${encodeURIComponent(formName)}&body=${encodeURIComponent(formMessage + "\n\nFrom: " + formName + "\nEmail: " + formEmail)}`;
     formStatus = "success";
     formName = "";
     formEmail = "";
@@ -485,7 +485,7 @@
 
       <div class="contact-cards">
         <a
-          href="mailto:matadorrocketry@mvhs.edu"
+          href="mailto:mvaerospaceengineering@gmail.com"
           class="contact-item glass-card"
           id="contact-email-card"
         >
@@ -504,7 +504,7 @@
           </div>
           <div>
             <strong>Email</strong>
-            <p>matadorrocketry@mvhs.edu</p>
+            <p>mvaerospaceengineering@gmail.com</p>
           </div>
         </a>
 
