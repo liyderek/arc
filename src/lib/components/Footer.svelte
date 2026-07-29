@@ -3,22 +3,7 @@
   <div class="container footer-inner">
     <div class="footer-brand">
       <div class="footer-logo-row">
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M16 2L20 12L16 10L12 12L16 2Z" fill="url(#flg1)"/>
-          <path d="M16 10L20 12L22 28L16 24L10 28L12 12L16 10Z" fill="url(#flg2)"/>
-          <path d="M10 28L13 22L16 24L16 30L10 28Z" fill="#F0C040"/>
-          <path d="M22 28L19 22L16 24L16 30L22 28Z" fill="#F0C040"/>
-          <defs>
-            <linearGradient id="flg1" x1="16" y1="2" x2="16" y2="12" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFD700"/>
-              <stop offset="1" stop-color="#F5A623"/>
-            </linearGradient>
-            <linearGradient id="flg2" x1="16" y1="10" x2="16" y2="28" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#9B67E8"/>
-              <stop offset="1" stop-color="#4A1A8C"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <img src="/logo.png" alt="Matador Rocketry" class="footer-logo-img" />
         <span class="footer-name">Matador Rocketry</span>
       </div>
       <p class="footer-desc">Monta Vista High School's competitive rocketry team, representing Cupertino in the American Rocketry Challenge.</p>
@@ -38,7 +23,6 @@
       <h4 class="footer-col-title">Navigate</h4>
       <ul role="list">
         <li><a href="#about">About</a></li>
-        <li><a href="#achievements">Achievements</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#videos">Videos</a></li>
@@ -58,14 +42,14 @@
 
   <div class="footer-bottom container">
     <p>© {new Date().getFullYear()} Matador Rocketry · Monta Vista High School · Cupertino, CA</p>
-    <p class="footer-tagline">🚀 Ad Astra</p>
+    <p class="footer-tagline">Ad Astra</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: linear-gradient(180deg, #080212 0%, #0A0314 100%);
-    border-top: 1px solid rgba(107, 53, 196, 0.2);
+    background: linear-gradient(180deg, #0A0A0A 0%, #060606 100%);
+    border-top: 1px solid rgba(224, 32, 32, 0.18);
     padding: 4rem 0 0;
     position: relative;
     overflow: hidden;
@@ -78,7 +62,7 @@
     transform: translateX(-50%);
     width: 600px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(240,192,64,0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(224,32,32,0.55), transparent);
   }
 
   .footer-inner {
@@ -94,6 +78,12 @@
     gap: 0.6rem;
     margin-bottom: 0.9rem;
   }
+  .footer-logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 4px rgba(224,32,32,0.5));
+  }
   .footer-name {
     font-family: 'Outfit', sans-serif;
     font-size: 1.1rem;
@@ -102,9 +92,9 @@
   }
 
   .footer-desc {
-    color: rgba(196, 160, 245, 0.7);
+    color: rgba(200, 180, 255, 0.6);
     font-size: 0.9rem;
-    line-height: 1.65;
+    line-height: 1.68;
     max-width: 300px;
     margin-bottom: 1.25rem;
   }
@@ -121,8 +111,8 @@
     gap: 0.4rem;
     padding: 0.45rem 0.9rem;
     border-radius: 99px;
-    border: 1px solid rgba(155, 103, 232, 0.35);
-    color: rgba(196, 160, 245, 0.9);
+    border: 1px solid rgba(224, 32, 32, 0.3);
+    color: rgba(255, 170, 170, 0.85);
     font-size: 0.82rem;
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
@@ -130,9 +120,9 @@
     transition: all 0.2s ease;
   }
   .social-pill:hover {
-    border-color: var(--yellow-gold, #F0C040);
-    color: var(--yellow-gold, #F0C040);
-    background: rgba(240,192,64,0.08);
+    border-color: #E02020;
+    color: #fff;
+    background: rgba(224,32,32,0.12);
   }
 
   .footer-col-title {
@@ -141,12 +131,12 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--yellow-gold, #F0C040);
+    color: #E02020;
     margin-bottom: 1rem;
   }
   .footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
   .footer-links-col a {
-    color: rgba(196, 160, 245, 0.7);
+    color: rgba(200, 180, 255, 0.65);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.2s ease;
@@ -154,7 +144,7 @@
   .footer-links-col a:hover { color: #fff; }
 
   .footer-bottom {
-    border-top: 1px solid rgba(107, 53, 196, 0.15);
+    border-top: 1px solid rgba(224, 32, 32, 0.12);
     padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -164,9 +154,9 @@
   }
   .footer-bottom p {
     font-size: 0.82rem;
-    color: rgba(196, 160, 245, 0.5);
+    color: rgba(200, 180, 255, 0.45);
   }
-  .footer-tagline { font-size: 0.9rem !important; color: rgba(240,192,64,0.7) !important; }
+  .footer-tagline { font-size: 0.9rem !important; color: rgba(224,32,32,0.65) !important; }
 
   @media (max-width: 768px) {
     .footer-inner {

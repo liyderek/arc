@@ -1,7 +1,6 @@
 /* =============================================
    MATADOR ROCKETRY — Global CSS
-   Monta Vista High School Theme
-   Purple + White + Yellow
+   Red + Purple + Black Theme
 ============================================= */
 
 /* ---- Reset & Base ---- */
@@ -12,39 +11,48 @@
 }
 
 :root {
-  /* Color tokens */
-  --purple-deep:    #2D0A5C;
-  --purple-core:    #4A1A8C;
-  --purple-mid:     #6B35C4;
-  --purple-light:   #9B67E8;
+  /* Red palette */
+  --red-bright:     #FF2D2D;
+  --red-core:       #E02020;
+  --red-dark:       #B01010;
+  --red-deep:       #7A0A0A;
+  --red-pale:       #FFAAAA;
+
+  /* Purple palette */
+  --purple-deep:    #1A0A3C;
+  --purple-core:    #3A1275;
+  --purple-mid:     #5B28B5;
+  --purple-light:   #8B5DE8;
   --purple-pale:    #C4A0F5;
   --purple-ghost:   #EDE0FF;
 
-  --yellow-gold:    #F0C040;
-  --yellow-bright:  #FFD700;
-  --yellow-warm:    #F5A623;
-  --yellow-pale:    #FFF3C4;
-
+  /* Neutrals */
   --white:          #FFFFFF;
-  --off-white:      #F8F6FF;
-  --light-gray:     #EEE8FF;
+  --off-white:      #F5F5F5;
+  --gray-light:     #AAAAAA;
+  --gray-mid:       #666666;
 
-  --dark:           #0A0314;
-  --dark-mid:       #130A28;
-  --dark-card:      #1C1035;
+  /* Blacks */
+  --dark:           #060606;
+  --dark-mid:       #0D0D0D;
+  --dark-card:      #141414;
+  --dark-raised:    #1A1A1A;
 
   /* Gradients */
-  --grad-hero:      linear-gradient(135deg, #0A0314 0%, #2D0A5C 50%, #4A1A8C 100%);
-  --grad-section:   linear-gradient(180deg, #0A0314 0%, #130A28 100%);
-  --grad-card:      linear-gradient(135deg, rgba(74,26,140,0.3) 0%, rgba(45,10,92,0.6) 100%);
-  --grad-gold:      linear-gradient(90deg, #F0C040, #FFD700, #F5A623);
-  --grad-purple:    linear-gradient(135deg, #6B35C4, #9B67E8);
+  --grad-hero:      linear-gradient(135deg, #060606 0%, #1A0A3C 55%, #3A1275 100%);
+  --grad-section:   linear-gradient(180deg, #060606 0%, #0D0D0D 100%);
+  --grad-card:      linear-gradient(135deg, rgba(58,18,117,0.25) 0%, rgba(26,10,60,0.5) 100%);
+  --grad-red:       linear-gradient(90deg, #E02020, #FF2D2D, #FF5555);
+  --grad-red-diag:  linear-gradient(135deg, #B01010, #E02020, #FF2D2D);
+  --grad-purple:    linear-gradient(135deg, #5B28B5, #8B5DE8);
+  --grad-hero-text: linear-gradient(90deg, #FF2D2D, #E02020, #B01010, #FF2D2D);
 
   /* Shadows */
-  --shadow-glow:    0 0 40px rgba(107, 53, 196, 0.4);
-  --shadow-gold:    0 0 30px rgba(240, 192, 64, 0.3);
-  --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-hover:   0 16px 48px rgba(107, 53, 196, 0.5);
+  --shadow-glow:    0 0 40px rgba(224, 32, 32, 0.3);
+  --shadow-red:     0 0 30px rgba(224, 32, 32, 0.35);
+  --shadow-purple:  0 0 30px rgba(91, 40, 181, 0.4);
+  --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-hover:   0 16px 48px rgba(224, 32, 32, 0.25);
 
   /* Typography */
   --font-heading:   'Outfit', sans-serif;
@@ -84,8 +92,8 @@ body {
 /* ---- Scrollbar ---- */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--dark); }
-::-webkit-scrollbar-thumb { background: var(--purple-mid); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--purple-light); }
+::-webkit-scrollbar-thumb { background: var(--red-core); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red-bright); }
 
 /* ---- Container ---- */
 .container {
@@ -101,7 +109,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--yellow-gold);
+  color: var(--red-core);
   display: inline-block;
   margin-bottom: 0.75rem;
 }
@@ -116,17 +124,17 @@ body {
 }
 
 .section-title span {
-  background: var(--grad-gold);
+  background: var(--grad-red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
-  color: var(--purple-pale);
+  font-size: 1.05rem;
+  color: rgba(200, 180, 255, 0.75);
   max-width: 560px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 /* ---- Buttons ---- */
@@ -151,55 +159,54 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   opacity: 0;
   transition: opacity var(--trans-fast);
 }
 .btn:hover::before { opacity: 1; }
 
 .btn-primary {
-  background: var(--grad-gold);
-  color: var(--purple-deep);
-  box-shadow: var(--shadow-gold);
+  background: var(--grad-red);
+  color: #fff;
+  box-shadow: var(--shadow-red);
+  font-weight: 700;
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(240, 192, 64, 0.5);
+  box-shadow: 0 12px 40px rgba(224, 32, 32, 0.55);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--white);
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.25);
   backdrop-filter: blur(8px);
 }
 .btn-outline:hover {
-  border-color: var(--yellow-gold);
-  color: var(--yellow-gold);
+  border-color: var(--red-core);
+  color: var(--red-bright);
   transform: translateY(-2px);
 }
 
-/* ---- Glass Card ---- */
+/* ---- Glass Card (legacy, kept for compat) ---- */
 .glass-card {
-  background: rgba(28, 16, 53, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(155, 103, 232, 0.2);
-  border-radius: var(--radius-lg);
+  background: rgba(15, 5, 5, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
   box-shadow: var(--shadow-card);
   transition: all var(--trans-mid);
 }
 .glass-card:hover {
-  border-color: rgba(155, 103, 232, 0.45);
+  border-color: rgba(224, 32, 32, 0.3);
   box-shadow: var(--shadow-hover);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* ---- Divider ---- */
 .divider {
   width: 60px;
   height: 4px;
-  background: var(--grad-gold);
+  background: var(--grad-red);
   border-radius: 2px;
   margin: 1rem 0 2rem;
 }
@@ -211,8 +218,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(107, 53, 196, 0.4); }
-  50%       { box-shadow: 0 0 50px rgba(107, 53, 196, 0.8), 0 0 80px rgba(240,192,64,0.2); }
+  0%, 100% { box-shadow: 0 0 20px rgba(224, 32, 32, 0.4); }
+  50%       { box-shadow: 0 0 50px rgba(224, 32, 32, 0.8), 0 0 80px rgba(91,40,181,0.3); }
 }
 
 @keyframes shimmer {
@@ -232,12 +239,12 @@ body {
 
 /* ---- Section wrapper ---- */
 section {
-  padding: var(--section-pad);
+  /* padding controlled per-section */
 }
 
-/* ---- Gold text ---- */
-.gold {
-  background: var(--grad-gold);
+/* ---- Red text utility ---- */
+.red {
+  background: var(--grad-red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -253,13 +260,13 @@ section {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 30% 60%, rgba(240,192,64,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 75% 45%, rgba(155,103,232,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 20% 85%, rgba(240,192,64,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 65% 70%, rgba(255,255,255,0.5) 0%, transparent 100%);
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 60%, rgba(224,32,32,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 45%, rgba(139,93,232,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 85%, rgba(224,32,32,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 70%, rgba(255,255,255,0.4) 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }

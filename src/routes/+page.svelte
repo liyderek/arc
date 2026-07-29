@@ -2,159 +2,42 @@
   import { onMount } from "svelte";
 
   // ─── DATA ───────────────────────────────────────────────────────────────────
-  const achievements = [
-    {
-      year: "2024",
-      title: "ARC National Finals Qualifier",
-      desc: "Qualified for the American Rocketry Challenge National Finals in Virginia, competing among the top 100 teams in the nation.",
-      icon: "🏆",
-    },
-    {
-      year: "2024",
-      title: "Regional Championship — 2nd Place",
-      desc: "Achieved second place at the Western Regional Qualifier with an altitude score within 3 feet of target.",
-      icon: "🥈",
-    },
-    {
-      year: "2023",
-      title: "Perfect Flight Award",
-      desc: "Received the Perfect Flight Award for achieving an altitude within 1% of the target and a flight time within 0.5 seconds.",
-      icon: "🎯",
-    },
-    {
-      year: "2023",
-      title: "ARC Regional Qualifier",
-      desc: "First-ever qualification to the Regional stage in the club's history, placing top 20 at the Pacific Southwest Qualifier.",
-      icon: "🚀",
-    },
-    {
-      year: "2022",
-      title: "MVHS STEM Showcase Winner",
-      desc: "Won the Monta Vista STEM Showcase for outstanding engineering presentation and rocket design innovation.",
-      icon: "🌟",
-    },
-    {
-      year: "2022",
-      title: "Founded Matador Rocketry",
-      desc: "Established the Matador Rocketry division of the MVHS Rocketry Club, dedicated to ARC competition.",
-      icon: "🎉",
-    },
-  ];
-
   const teamMembers = [
-    {
-      name: "Krish Vimalkumar",
-      title: "Team Captain",
-    },
-    {
-      name: "Ashwin Rajkumar",
-      title: "Member",
-    },
-    {
-      name: "Qicheng (Anthony) Lin",
-      title: "Member",
-    },
-    {
-      name: "Ryan Kim",
-      title: "Member",
-    },
-    {
-      name: "Derek Li",
-      title: "Member",
-    },
-    {
-      name: "Rohan Agarwal",
-      title: "Member",
-    },
-    {
-      name: "Advaith Prabhu",
-      title: "Member",
-    },
-    {
-      name: "Chris Ahn",
-      title: "Member",
-    },
+    { name: "Krish Vimalkumar", title: "Team Captain" },
+    { name: "Ashwin Rajkumar",  title: "Member" },
+    { name: "Qicheng (Anthony) Lin", title: "Member" },
+    { name: "Ryan Kim",         title: "Member" },
+    { name: "Derek Li",         title: "Member" },
+    { name: "Rohan Agarwal",    title: "Member" },
+    { name: "Advaith Prabhu",   title: "Member" },
+    { name: "Chris Ahn",        title: "Member" },
   ];
 
   const galleryImages = [
-    {
-      src: "/media/converted/IMG_3170.jpg",
-      alt: "Team member assembling rocket at competition",
-    },
-    {
-      src: "/media/converted/IMG_3330.jpg",
-      alt: "Rocket components laid out before launch",
-    },
-    {
-      src: "/media/converted/IMG_3331.jpg",
-      alt: "Team carrying rocket to launch pad",
-    },
-    {
-      src: "/media/converted/IMG_3332.jpg",
-      alt: "Close-up of rocket motor section",
-    },
-    {
-      src: "/media/converted/IMG_3334.jpg",
-      alt: "Team discussing launch strategy",
-    },
-    {
-      src: "/media/converted/IMG_3335.jpg",
-      alt: "Rocket on launch rail ready for flight",
-    },
-    {
-      src: "/media/converted/IMG_3388.jpg",
-      alt: "Team inspecting rocket after recovery",
-    },
-    {
-      src: "/media/converted/IMG_3389.jpg",
-      alt: "Recovered rocket body section on field",
-    },
-    {
-      src: "/media/converted/IMG_3405.jpg",
-      alt: "Team at ARC competition site",
-    },
-    {
-      src: "/media/converted/IMG_3407.jpg",
-      alt: "Matador Rocketry team group photo",
-    },
-    {
-      src: "/media/converted/IMG_3455.jpg",
-      alt: "Rocket airframe detail",
-    },
-    {
-      src: "/media/converted/IMG_4729.jpg",
-      alt: "Team working on rocket at launch site",
-    },
+    { src: "/media/converted/IMG_3170.jpg", alt: "Team member assembling rocket at competition" },
+    { src: "/media/converted/IMG_3330.jpg", alt: "Rocket components laid out before launch" },
+    { src: "/media/converted/IMG_3331.jpg", alt: "Team carrying rocket to launch pad" },
+    { src: "/media/converted/IMG_3332.jpg", alt: "Close-up of rocket motor section" },
+    { src: "/media/converted/IMG_3334.jpg", alt: "Team discussing launch strategy" },
+    { src: "/media/converted/IMG_3335.jpg", alt: "Rocket on launch rail ready for flight" },
+    { src: "/media/converted/IMG_3388.jpg", alt: "Team inspecting rocket after recovery" },
+    { src: "/media/converted/IMG_3389.jpg", alt: "Recovered rocket body section on field" },
+    { src: "/media/converted/IMG_3405.jpg", alt: "Team at ARC competition site" },
+    { src: "/media/converted/IMG_3407.jpg", alt: "Matador Rocketry team group photo" },
+    { src: "/media/converted/IMG_3455.jpg", alt: "Rocket airframe detail" },
+    { src: "/media/converted/IMG_4729.jpg", alt: "Team working on rocket at launch site" },
   ];
 
   const videos = [
-    {
-      id: "launch-1",
-      src: "/media/converted/IMG_3150.mp4",
-    },
-    {
-      id: "launch-2",
-      src: "/media/converted/IMG_3156.mp4",
-    },
-    {
-      id: "launch-3",
-      src: "/media/converted/IMG_3157.mp4",
-    },
-    {
-      id: "flight-4",
-      src: "/media/converted/IMG_3161.mp4",
-    },
-    {
-      id: "flight-5",
-      src: "/media/converted/IMG_3162.mp4",
-    },
-    {
-      id: "flight-6",
-      src: "/media/converted/IMG_4724.mp4",
-    },
+    { id: "launch-1", src: "/media/converted/IMG_3150.mp4" },
+    { id: "launch-2", src: "/media/converted/IMG_3156.mp4" },
+    { id: "launch-3", src: "/media/converted/IMG_3157.mp4" },
+    { id: "flight-4", src: "/media/converted/IMG_3161.mp4" },
+    { id: "flight-5", src: "/media/converted/IMG_3162.mp4" },
+    { id: "flight-6", src: "/media/converted/IMG_4724.mp4" },
   ];
 
-  // ─── INTERSECTION OBSERVER FOR FADE-IN ──────────────────────────────────────
+  // ─── REVEAL ON SCROLL ───────────────────────────────────────────────────────
   onMount(() => {
     const els = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -166,7 +49,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -176,22 +59,16 @@
   let formName = $state("");
   let formEmail = $state("");
   let formMessage = $state("");
-  let formStatus = $state(null); // null | 'success' | 'error'
+  let formStatus = $state(null);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!formName || !formEmail || !formMessage) {
-      formStatus = "error";
-      return;
-    }
+    if (!formName || !formEmail || !formMessage) { formStatus = "error"; return; }
     window.location.href = `mailto:mvaerospaceengineering@gmail.com?subject=Message from ${encodeURIComponent(formName)}&body=${encodeURIComponent(formMessage + "\n\nFrom: " + formName + "\nEmail: " + formEmail)}`;
     formStatus = "success";
-    formName = "";
-    formEmail = "";
-    formMessage = "";
+    formName = ""; formEmail = ""; formMessage = "";
   }
 
-  // Active gallery image
   let activeGallery = $state(0);
 </script>
 
@@ -199,226 +76,180 @@
   <title>Matador Rocketry | Monta Vista High School</title>
 </svelte:head>
 
-<!-- ═══════════════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════════════════════
      HERO
-════════════════════════════════════════════════════════════════ -->
-<section id="hero" class="hero stars-bg">
-  <div class="hero-bg-img" aria-hidden="true"></div>
+══════════════════════════════════════════════════════════════ -->
+<section id="hero" class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
-  <!-- Floating orbs -->
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="orb orb-2" aria-hidden="true"></div>
-  <div class="orb orb-3" aria-hidden="true"></div>
-
-  <div class="container hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">
+      <span class="eyebrow-dot"></span>
       American Rocketry Challenge 2024–2025
     </div>
 
-    <h1 class="hero-title">
-      <span class="hero-line-1">Matador</span>
-      <span class="hero-line-2">Rocketry</span>
+    <h1 class="hero-title reveal">
+      Matador<br /><em>Rocketry</em>
     </h1>
 
-    <p class="hero-subtitle">
-      Monta Vista High School's premier competitive rocketry team — engineering
-      precision, fueling ambition, reaching for the stars.
+    <p class="hero-sub reveal">
+      Monta Vista High School's premier competitive rocketry team —<br />
+      engineering precision, fueling ambition, reaching for the stars.
     </p>
 
-    <div class="hero-btns">
-      <a href="#about" class="btn btn-primary" id="hero-learn-btn"
-        >Explore Our Story</a
-      >
-      <a href="#contact" class="btn btn-outline" id="hero-join-btn"
-        >Join the Team</a
-      >
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">2</span>
-        <span class="stat-label">Years Competing</span>
-      </div>
-      <div class="stat-divider" aria-hidden="true"></div>
-      <div class="stat-item">
-        <span class="stat-num">8+</span>
-        <span class="stat-label">Team Members</span>
-      </div>
+    <div class="hero-actions reveal">
+      <a href="#about" class="btn-solid">Explore Our Story</a>
+      <a href="#contact" class="btn-ghost">Join the Team ↗</a>
     </div>
   </div>
 
-  <div class="hero-scroll-hint" aria-hidden="true">
-    <div class="scroll-line"></div>
+  <div class="hero-stats reveal">
+    <div class="hstat">
+      <span class="hstat-num">2</span>
+      <span class="hstat-lbl">Years Competing</span>
+    </div>
+    <div class="hstat-rule"></div>
+    <div class="hstat">
+      <span class="hstat-num">8+</span>
+      <span class="hstat-lbl">Team Members</span>
+    </div>
+    <div class="hstat-rule"></div>
+    <div class="hstat">
+      <span class="hstat-num">Top&nbsp;100</span>
+      <span class="hstat-lbl">Nationally</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-bar"></div>
     <span>Scroll</span>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     ABOUT
-════════════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════════════
+     ABOUT — edge-to-edge split
+══════════════════════════════════════════════════════════════ -->
 <section id="about" class="about-section">
-  <div class="container about-grid">
-    <div class="about-img-col reveal">
-      <div class="about-img-wrapper">
-        <img
-          src="/media/converted/IMG_3408.jpg"
-          alt="Matador Rocketry team in the workshop building their competition rocket"
-          loading="lazy"
-        />
-        <div class="about-img-badge glass-card">
-          <span class="badge-emoji">🚀</span>
-          <div>
-            <strong>ARC Competitors</strong>
-            <p>Since 2022</p>
-          </div>
-        </div>
-      </div>
+  <div class="about-split">
+    <!-- Image side — bleeds to edge -->
+    <div class="about-img-side reveal">
+      <img
+        src="/media/converted/IMG_3408.jpg"
+        alt="Matador Rocketry team in the workshop building their competition rocket"
+        loading="lazy"
+      />
     </div>
 
-    <div class="about-text-col reveal">
-      <span class="section-label">Who We Are</span>
-      <h2 class="section-title">
-        Launching Dreams from <span>Cupertino</span>
-      </h2>
-      <div class="divider"></div>
-      <p class="section-subtitle" style="max-width:100%">
-        Matador Rocketry is the competitive division of the <strong
-          >Monta Vista High School Rocketry Club</strong
-        >, based in Cupertino, CA. We design, build, and fly model rockets that
-        meet the strict altitude and flight-time requirements of the
-        <strong>American Rocketry Challenge (ARC)</strong> — the world's largest student
-        rocket contest.
+    <!-- Text side -->
+    <div class="about-text-side reveal">
+      <span class="sec-num">01</span>
+      <span class="sec-label">Who We Are</span>
+      <h2 class="sec-title">Launching<br />Dreams from<br /><em>Cupertino</em></h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        Matador Rocketry is the competitive division of the
+        <strong>Monta Vista High School Rocketry Club</strong>, based in
+        Cupertino, CA. We design, build, and fly model rockets that meet the
+        strict altitude and flight-time requirements of the
+        <strong>American Rocketry Challenge (ARC)</strong> — the world's
+        largest student rocket contest.
       </p>
-      <p class="about-body-text">
-        Our team brings together students from all grade levels who share a
-        passion for STEM, engineering, and the thrill of watching a rocket
-        pierce the sky. We use industry-standard tools like OpenRocket, work
-        with real composite materials, and develop skills that carry into
-        aerospace careers.
+      <p class="sec-body">
+        Our team uses industry-standard tools like OpenRocket, real composite
+        materials, and develops skills that carry into aerospace careers.
       </p>
       <div class="about-tags">
-        <span class="tag">OpenRocket Simulation</span>
-        <span class="tag">Composite Airframes</span>
-        <span class="tag">Avionics</span>
-        <span class="tag">Recovery Systems</span>
-        <span class="tag">NAR Safety</span>
-        <span class="tag">TARC / ARC</span>
+        <span class="atag">OpenRocket</span>
+        <span class="atag">Composite Airframes</span>
+        <span class="atag">Avionics</span>
+        <span class="atag">Recovery Systems</span>
+        <span class="atag">NAR Safety</span>
+        <span class="atag">ARC</span>
       </div>
-      <a
-        href="https://www.rocketrychallenge.org"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-outline"
-        id="about-arc-btn"
-        style="margin-top:1.5rem;"
-      >
-        Learn About ARC →
+      <a href="https://www.rocketrychallenge.org" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="margin-top:2rem">
+        Learn About ARC ↗
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     ACHIEVEMENTS
-════════════════════════════════════════════════════════════════ -->
-<!-- <section id="achievements" class="achievements-section stars-bg"> -->
-<!--   <div class="container"> -->
-<!--     <div class="section-header reveal"> -->
-<!--       <span class="section-label">Our Track Record</span> -->
-<!--       <h2 class="section-title">Built to <span>Win</span></h2> -->
-<!--       <div class="divider"></div> -->
-<!--       <p class="section-subtitle"> -->
-<!--         From our founding to competing on the national stage — here's how far -->
-<!--         we've come. -->
-<!--       </p> -->
-<!--     </div> -->
-<!---->
-<!--     <div class="achievements-grid"> -->
-<!--       {#each achievements as ach, i} -->
-<!--         <article -->
-<!--           class="achievement-card glass-card reveal" -->
-<!--           style="--delay:{i * 0.08}s" -->
-<!--           id="achievement-{i}" -->
-<!--         > -->
-<!--           <div class="ach-top"> -->
-<!--             <span class="ach-icon">{ach.icon}</span> -->
-<!--             <span class="ach-year">{ach.year}</span> -->
-<!--           </div> -->
-<!--           <h3 class="ach-title">{ach.title}</h3> -->
-<!--           <p class="ach-desc">{ach.desc}</p> -->
-<!--         </article> -->
-<!--       {/each} -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </section> -->
-<!---->
-<!-- ═══════════════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════════════════════
+     SPONSORS
+══════════════════════════════════════════════════════════════ -->
+<section id="sponsors" class="sponsors-strip">
+  <div class="sponsors-container">
+    <span class="sponsors-label reveal">Proud Sponsor</span>
+    <a
+      href="https://www.simscale.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="sponsor-link reveal"
+      aria-label="SimScale"
+    >
+      <img src="/simscale-white.png" alt="SimScale" class="sponsor-img" />
+    </a>
+    <p class="sponsor-tagline reveal">Cloud-based simulation platform powering our CFD &amp; structural analysis.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
      TEAM
-════════════════════════════════════════════════════════════════ -->
+══════════════════════════════════════════════════════════════ -->
 <section id="team" class="team-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">The Crew</span>
-      <h2 class="section-title">Meet Our <span>Team</span></h2>
-      <div class="divider"></div>
-      <p class="section-subtitle">
-        The brilliant minds behind every rocket we launch — engineers, analysts,
-        builders, and leaders.
-      </p>
+  <div class="content-container">
+    <div class="sec-header reveal">
+      <span class="sec-num">02</span>
+      <span class="sec-label">The Crew</span>
+      <h2 class="sec-title">Meet Our <em>Team</em></h2>
+      <div class="sec-rule"></div>
+      <p class="sec-sub">The brilliant minds behind every rocket — engineers, analysts, builders, and leaders.</p>
     </div>
 
     <div class="team-grid">
       {#each teamMembers as member, i}
-        <article
-          class="member-card glass-card reveal"
-          style="--delay:{i * 0.07}s"
-          id="member-{i}"
-        >
+        <article class="member-card reveal" style="--delay:{i * 0.06}s" id="member-{i}">
+          <div class="member-num">{String(i + 1).padStart(2, "0")}</div>
           <div class="member-info">
-            <div class="member-grade">MVHS Rocketry</div>
             <h3 class="member-name">{member.name}</h3>
-            <p class="member-title">{member.title}</p>
+            <p class="member-role">{member.title}</p>
           </div>
+          <div class="member-org">MVHS Rocketry</div>
         </article>
       {/each}
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     GALLERY
-════════════════════════════════════════════════════════════════ -->
-<section id="gallery" class="gallery-section stars-bg">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">In Action</span>
-      <h2 class="section-title">Photo <span>Gallery</span></h2>
-      <div class="divider"></div>
-      <p class="section-subtitle">
-        A glimpse into our builds, launches, and competition moments.
-      </p>
+<!-- ══════════════════════════════════════════════════════════════
+     GALLERY — editorial layout
+══════════════════════════════════════════════════════════════ -->
+<section id="gallery" class="gallery-section">
+  <div class="content-container">
+    <div class="sec-header reveal">
+      <span class="sec-num">03</span>
+      <span class="sec-label">In Action</span>
+      <h2 class="sec-title">Photo <em>Gallery</em></h2>
+      <div class="sec-rule"></div>
     </div>
 
-    <!-- Featured large image -->
+    <!-- Featured -->
     <div class="gallery-featured reveal">
-      <div class="gallery-frame">
-        <img
-          src={galleryImages[activeGallery].src}
-          alt={galleryImages[activeGallery].alt}
-        />
+      <img src={galleryImages[activeGallery].src} alt={galleryImages[activeGallery].alt} />
+      <div class="gallery-featured-bar">
+        <span class="gallery-count">{String(activeGallery + 1).padStart(2,"0")} / {String(galleryImages.length).padStart(2,"0")}</span>
+        <span class="gallery-alt">{galleryImages[activeGallery].alt}</span>
       </div>
     </div>
 
-    <!-- Thumbnail grid -->
-    <div class="gallery-grid reveal">
+    <!-- Thumbs -->
+    <div class="gallery-thumbs reveal">
       {#each galleryImages as img, i}
         <button
-          class="gallery-thumb"
+          class="gthumb"
           class:active={activeGallery === i}
           on:click={() => (activeGallery = i)}
-          aria-label="View Image {i + 1}"
+          aria-label="View image {i + 1}"
           id="gallery-thumb-{i}"
         >
           <img src={img.src} alt={img.alt} loading="lazy" />
@@ -428,1011 +259,837 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════════════════════
      VIDEOS
-════════════════════════════════════════════════════════════════ -->
+══════════════════════════════════════════════════════════════ -->
 <section id="videos" class="videos-section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Watch Us Fly</span>
-      <h2 class="section-title">Launch <span>Videos</span></h2>
-      <div class="divider"></div>
-      <p class="section-subtitle">
-        From workshop build sessions to competition launches — watch Matador
-        Rocketry in action.
-      </p>
+  <div class="content-container">
+    <div class="sec-header reveal">
+      <span class="sec-num">04</span>
+      <span class="sec-label">Watch Us Fly</span>
+      <h2 class="sec-title">Launch <em>Videos</em></h2>
+      <div class="sec-rule"></div>
     </div>
 
     <div class="videos-grid">
       {#each videos as vid, i}
-        <article
-          class="video-card glass-card reveal"
-          style="--delay:{i * 0.1}s"
-          id="video-{vid.id}"
-        >
-          <div class="video-wrap">
-            <video
-              src={vid.src}
-              controls
-              preload="metadata"
-              playsinline
-              aria-label="Video {i + 1}"
-              class="video-player"
-            >
-              Your browser does not support HTML5 video.
-            </video>
-          </div>
-        </article>
+        <div class="video-wrap reveal" style="--delay:{i * 0.08}s" id="video-{vid.id}">
+          <video
+            src={vid.src}
+            controls
+            preload="metadata"
+            playsinline
+            aria-label="Launch video {i + 1}"
+          >
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
       {/each}
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════════════════════
      CONTACT
-════════════════════════════════════════════════════════════════ -->
-<section id="contact" class="contact-section stars-bg">
-  <div class="container contact-grid">
-    <!-- Info Side -->
+══════════════════════════════════════════════════════════════ -->
+<section id="contact" class="contact-section">
+  <div class="content-container contact-grid">
+    <!-- Info -->
     <div class="contact-info reveal">
-      <span class="section-label">Get In Touch</span>
-      <h2 class="section-title">Join the <span>Mission</span></h2>
-      <div class="divider"></div>
-      <p class="section-subtitle" style="max-width:100%">
+      <span class="sec-num">05</span>
+      <span class="sec-label">Get In Touch</span>
+      <h2 class="sec-title">Join the <em>Mission</em></h2>
+      <div class="sec-rule"></div>
+      <p class="sec-sub" style="max-width:100%">
         Interested in joining Matador Rocketry, partnering as a sponsor, or just
-        have a question? We'd love to hear from you!
+        have a question? We'd love to hear from you.
       </p>
 
-      <div class="contact-cards">
-        <a
-          href="mailto:mvaerospaceengineering@gmail.com"
-          class="contact-item glass-card"
-          id="contact-email-card"
-        >
-          <div class="contact-icon" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-          </div>
-          <div>
-            <strong>Email</strong>
-            <p>mvaerospaceengineering@gmail.com</p>
-          </div>
+      <div class="contact-list">
+        <a href="mailto:mvaerospaceengineering@gmail.com" class="contact-row" id="contact-email-card">
+          <div class="contact-row-label">Email</div>
+          <div class="contact-row-val">mvaerospaceengineering@gmail.com ↗</div>
         </a>
-
-        <div class="contact-item glass-card" id="contact-school-card">
-          <div class="contact-icon" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-          </div>
-          <div>
-            <strong>School</strong>
-            <p>Monta Vista High School, Cupertino CA</p>
-          </div>
+        <div class="contact-row" id="contact-school-card">
+          <div class="contact-row-label">School</div>
+          <div class="contact-row-val">Monta Vista High School, Cupertino CA</div>
         </div>
-
-        <a
-          href="https://www.rocketrychallenge.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-item glass-card"
-          id="contact-arc-card"
-        >
-          <div class="contact-icon" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
-          </div>
-          <div>
-            <strong>Competition</strong>
-            <p>American Rocketry Challenge (ARC)</p>
-          </div>
+        <a href="https://www.rocketrychallenge.org" target="_blank" rel="noopener noreferrer" class="contact-row" id="contact-arc-card">
+          <div class="contact-row-label">Competition</div>
+          <div class="contact-row-val">American Rocketry Challenge (ARC) ↗</div>
         </a>
       </div>
     </div>
 
-    <!-- Form Side -->
+    <!-- Form -->
     <div class="contact-form-wrap reveal">
-      <form
-        class="contact-form glass-card"
-        on:submit={handleSubmit}
-        id="contact-form"
-        aria-label="Contact form"
-      >
-        <h3 class="form-title">Send Us a Message</h3>
+      <form class="contact-form" on:submit={handleSubmit} id="contact-form">
+        <h3 class="form-heading">Send a Message</h3>
 
         {#if formStatus === "success"}
-          <div class="form-alert success" role="alert">
-            ✅ Opening your email client... Thanks for reaching out!
-          </div>
+          <div class="form-alert ok" role="alert">Opening your email client… Thanks!</div>
         {/if}
         {#if formStatus === "error"}
-          <div class="form-alert error" role="alert">
-            ⚠️ Please fill in all fields before sending.
-          </div>
+          <div class="form-alert err" role="alert">Please fill in all fields before sending.</div>
         {/if}
 
-        <div class="form-group">
-          <label for="contact-name">Your Name</label>
-          <input
-            id="contact-name"
-            type="text"
-            bind:value={formName}
-            placeholder="e.g. Jane Doe"
-            required
-            autocomplete="name"
-          />
+        <div class="form-field">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" type="text" bind:value={formName} placeholder="Jane Doe" required autocomplete="name" />
         </div>
-
-        <div class="form-group">
-          <label for="contact-email">Your Email</label>
-          <input
-            id="contact-email"
-            type="email"
-            bind:value={formEmail}
-            placeholder="you@example.com"
-            required
-            autocomplete="email"
-          />
+        <div class="form-field">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" type="email" bind:value={formEmail} placeholder="you@example.com" required autocomplete="email" />
         </div>
-
-        <div class="form-group">
+        <div class="form-field">
           <label for="contact-message">Message</label>
-          <textarea
-            id="contact-message"
-            rows="5"
-            bind:value={formMessage}
-            placeholder="Tell us why you'd like to join, or ask us anything!"
-            required
-          ></textarea>
+          <textarea id="contact-message" rows="5" bind:value={formMessage} placeholder="Tell us why you'd like to join…" required></textarea>
         </div>
 
-        <button
-          type="submit"
-          class="btn btn-primary submit-btn"
-          id="contact-submit-btn"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            aria-hidden="true"
-          >
-            <line x1="22" y1="2" x2="11" y2="13" />
-            <polygon points="22 2 15 22 11 13 2 9 22 2" />
-          </svg>
-          Send Message
-        </button>
+        <button type="submit" class="btn-solid submit-btn" id="contact-submit-btn">Send Message</button>
       </form>
     </div>
   </div>
 </section>
 
 <style>
-  /* ── Reveal animation ─────────────────────────────────────────── */
+  /* ── Reveal ─────────────────────────────────────────────────── */
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
     transition:
-      opacity 0.65s ease var(--delay, 0s),
-      transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay, 0s);
+      opacity 0.7s ease var(--delay, 0s),
+      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay, 0s);
   }
-  :global(.reveal.visible) {
-    opacity: 1;
-    transform: none;
+  :global(.reveal.visible) { opacity: 1; transform: none; }
+
+  /* ── Shared Buttons ─────────────────────────────────────────── */
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2.2rem;
+    border-radius: 3px;
+    background: var(--red-core, #E02020);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid var(--red-core, #E02020);
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-solid:hover { background: var(--red-bright, #FF2D2D); border-color: var(--red-bright, #FF2D2D); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2.2rem;
+    border-radius: 3px;
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--red-core, #E02020); color: #fff; transform: translateY(-2px); }
+
+  /* ── Shared Section Typography ──────────────────────────────── */
+  .sec-num {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 0.35rem;
+  }
+  .sec-label {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #E02020;
+    margin-bottom: 1.1rem;
+  }
+  .sec-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.6rem, 5.5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .sec-title em {
+    font-style: normal;
+    background: linear-gradient(90deg, #E02020, #FF5555);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .sec-rule {
+    width: 40px;
+    height: 3px;
+    background: #E02020;
+    border-radius: 2px;
+    margin: 0 0 1.75rem;
+  }
+  .sec-body {
+    font-size: 1rem;
+    color: rgba(220,210,255,0.7);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    max-width: 480px;
+  }
+  .sec-sub {
+    font-size: 1.05rem;
+    color: rgba(220,210,255,0.65);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2rem;
   }
 
-  /* ─── HERO ────────────────────────────────────────────────────── */
+  .sec-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  /* ══════════════════════════════════════════════════════════════
+     HERO
+  ══════════════════════════════════════════════════════════════ */
   .hero {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    background: var(--grad-hero);
-    padding: 0 2rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     overflow: hidden;
+    background: #060606;
   }
 
-  .hero-bg-img {
+  .hero-bg {
     position: absolute;
     inset: 0;
-    background: url("/media/converted/IMG_3334.jpg") center center / cover
-      no-repeat;
-    opacity: 0.22;
+    background: url("/media/converted/IMG_3334.jpg") center / cover no-repeat;
+    opacity: 0.2;
     z-index: 0;
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(10, 3, 20, 0.2) 0%,
-      rgba(10, 3, 20, 0) 40%,
-      rgba(10, 3, 20, 0.85) 100%
-    );
+    background:
+      linear-gradient(to right, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.5) 55%, rgba(6,6,6,0.15) 100%),
+      linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0) 40%, rgba(6,6,6,0.9) 100%);
     z-index: 1;
-  }
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .orb-1 {
-    width: 500px;
-    height: 500px;
-    top: -100px;
-    left: -100px;
-    background: radial-gradient(
-      circle,
-      rgba(107, 53, 196, 0.35) 0%,
-      transparent 70%
-    );
-    animation: float 8s ease-in-out infinite;
-  }
-  .orb-2 {
-    width: 400px;
-    height: 400px;
-    bottom: -100px;
-    right: -80px;
-    background: radial-gradient(
-      circle,
-      rgba(240, 192, 64, 0.2) 0%,
-      transparent 70%
-    );
-    animation: float 10s ease-in-out infinite reverse;
-  }
-  .orb-3 {
-    width: 300px;
-    height: 300px;
-    top: 40%;
-    left: 60%;
-    background: radial-gradient(
-      circle,
-      rgba(155, 103, 232, 0.2) 0%,
-      transparent 70%
-    );
-    animation: float 12s ease-in-out infinite 2s;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    padding-top: 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    width: 100%;
+    padding-top: 7rem;
   }
 
-  .hero-badge {
+  .hero-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 1.1rem;
-    border-radius: 99px;
-    border: 1px solid rgba(240, 192, 64, 0.4);
-    background: rgba(240, 192, 64, 0.1);
-    font-family: "Outfit", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--yellow-gold);
-    backdrop-filter: blur(8px);
-    animation: fade-up 0.8s ease 0.2s both;
+    gap: 0.6rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2rem;
+    animation: fade-up 0.8s ease 0.1s both;
   }
-  .badge-dot {
-    width: 7px;
-    height: 7px;
+  .eyebrow-dot {
+    width: 6px; height: 6px;
     border-radius: 50%;
-    background: var(--yellow-gold);
-    box-shadow: 0 0 8px rgba(240, 192, 64, 0.8);
-    animation: pulse-glow 2s ease infinite;
+    background: #E02020;
+    box-shadow: 0 0 8px rgba(224,32,32,0.8);
+    animation: pulse 2s ease infinite;
   }
 
   .hero-title {
-    font-family: "Outfit", sans-serif;
-    line-height: 1;
-    animation: fade-up 0.8s ease 0.35s both;
-  }
-  .hero-line-1 {
-    display: block;
-    font-size: clamp(3rem, 10vw, 7.5rem);
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
     font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
     color: #fff;
-    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    animation: fade-up 0.8s ease 0.25s both;
   }
-  .hero-line-2 {
-    display: block;
-    font-size: clamp(2rem, 7vw, 5rem);
-    font-weight: 700;
-    background: linear-gradient(90deg, #f0c040, #ffd700, #f5a623, #f0c040);
+  .hero-title em {
+    font-style: normal;
+    background: linear-gradient(90deg, #E02020, #FF5555, #E02020);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation:
-      fade-up 0.8s ease 0.5s both,
-      shimmer 4s linear infinite 1s;
-    letter-spacing: 0.05em;
+    animation: shimmer 4s linear infinite 1s;
   }
 
-  .hero-subtitle {
-    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-    color: rgba(196, 160, 245, 0.85);
-    max-width: 580px;
-    animation: fade-up 0.8s ease 0.65s both;
-    line-height: 1.7;
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: rgba(220, 210, 255, 0.7);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    animation: fade-up 0.8s ease 0.4s both;
   }
 
-  .hero-btns {
+  .hero-actions {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    justify-content: center;
-    animation: fade-up 0.8s ease 0.8s both;
+    animation: fade-up 0.8s ease 0.55s both;
   }
 
   .hero-stats {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    width: 100%;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    margin-top: 1rem;
-    animation: fade-up 0.8s ease 1s both;
+    gap: 2.5rem;
+    padding-bottom: 3.5rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    margin-top: auto;
+    animation: fade-up 0.8s ease 0.75s both;
   }
-  .stat-item {
+  .hstat {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0.2rem;
   }
-  .stat-num {
-    font-family: "Outfit", sans-serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 800;
-    color: var(--yellow-gold);
+  .hstat-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.02em;
   }
-  .stat-label {
-    font-size: 0.78rem;
-    color: rgba(196, 160, 245, 0.7);
+  .hstat-lbl {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
+    color: rgba(255,255,255,0.35);
   }
-  .stat-divider {
+  .hstat-rule {
     width: 1px;
-    height: 40px;
-    background: rgba(155, 103, 232, 0.3);
+    height: 36px;
+    background: rgba(255,255,255,0.12);
+    flex-shrink: 0;
   }
 
-  .hero-scroll-hint {
+  .hero-scroll {
     position: absolute;
     bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
-    color: rgba(255, 255, 255, 0.35);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    animation: fade-up 1s ease 1.4s both;
+    gap: 0.5rem;
     z-index: 2;
+    color: rgba(255,255,255,0.25);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    animation: fade-up 1s ease 1.2s both;
   }
-  .scroll-line {
+  .scroll-bar {
     width: 1px;
-    height: 40px;
-    background: linear-gradient(
-      to bottom,
-      rgba(155, 103, 232, 0.7),
-      transparent
-    );
-    animation: float 2s ease-in-out infinite;
+    height: 48px;
+    background: linear-gradient(to bottom, #E02020, transparent);
+    animation: grow-bar 2s ease-in-out infinite;
   }
 
-  /* ─── ABOUT ───────────────────────────────────────────────────── */
+  /* ══════════════════════════════════════════════════════════════
+     ABOUT — edge-to-edge split
+  ══════════════════════════════════════════════════════════════ */
   .about-section {
-    background: linear-gradient(180deg, var(--dark) 0%, var(--dark-mid) 100%);
+    background: #060606;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
 
-  .about-grid {
+  .about-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    min-height: 680px;
   }
 
-  .about-img-wrapper {
-    position: relative;
-    border-radius: var(--radius-lg);
+  .about-img-side {
     overflow: hidden;
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.5),
-      0 0 0 1px rgba(107, 53, 196, 0.3);
+    position: relative;
   }
-  .about-img-wrapper img {
+  .about-img-side img {
     width: 100%;
-    height: 480px;
+    height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s ease;
+    transition: transform 0.8s ease;
   }
-  .about-img-wrapper:hover img {
-    transform: scale(1.03);
+  .about-img-side:hover img {
+    transform: scale(1.04);
   }
 
-  .about-img-badge {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
-    padding: 0.75rem 1rem;
+  .about-text-side {
+    padding: 5rem 4rem 5rem 5rem;
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    border-radius: var(--radius-md);
-  }
-  .about-img-badge strong {
-    display: block;
-    font-family: "Outfit", sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-  }
-  .about-img-badge p {
-    font-size: 0.78rem;
-    color: var(--yellow-gold);
-    margin: 0;
-  }
-  .badge-emoji {
-    font-size: 1.8rem;
-  }
-
-  .about-body-text {
-    color: rgba(196, 160, 245, 0.7);
-    font-size: 0.95rem;
-    line-height: 1.75;
-    margin: 1rem 0;
+    flex-direction: column;
+    justify-content: center;
+    background: #0A0A0A;
   }
 
   .about-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
-  .tag {
-    padding: 0.35rem 0.9rem;
-    border-radius: var(--radius-full);
-    font-family: "Outfit", sans-serif;
-    font-size: 0.78rem;
+  .atag {
+    padding: 0.3rem 0.85rem;
+    border-radius: 2px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
     font-weight: 600;
-    background: rgba(107, 53, 196, 0.2);
-    border: 1px solid rgba(155, 103, 232, 0.3);
-    color: var(--purple-pale);
-    transition: all 0.2s ease;
+    letter-spacing: 0.06em;
+    border: 1px solid rgba(224,32,32,0.25);
+    color: rgba(255,170,170,0.75);
+    background: rgba(224,32,32,0.06);
+    transition: all 0.2s;
   }
-  .tag:hover {
-    background: rgba(107, 53, 196, 0.4);
-    border-color: rgba(155, 103, 232, 0.6);
+  .atag:hover {
+    border-color: rgba(224,32,32,0.55);
     color: #fff;
+    background: rgba(224,32,32,0.15);
   }
 
-  /* ─── ACHIEVEMENTS ────────────────────────────────────────────── */
-  .achievements-section {
-    background: var(--dark-mid);
+  /* ══════════════════════════════════════════════════════════════
+     SPONSORS
+  ══════════════════════════════════════════════════════════════ */
+  .sponsors-strip {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: #0D0D0D;
+    padding: 3rem 2.5rem;
   }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-  }
-  .section-header .section-subtitle {
+  .sponsors-container {
+    max-width: 900px;
     margin: 0 auto;
-  }
-
-  .achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .achievement-card {
-    padding: 1.75rem;
-    transition-delay: var(--delay, 0s);
-  }
-
-  .ach-top {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+    gap: 1.25rem;
+    text-align: center;
   }
-  .ach-icon {
-    font-size: 2rem;
-  }
-  .ach-year {
-    font-family: "Outfit", sans-serif;
-    font-size: 0.8rem;
+  .sponsors-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--yellow-gold);
-    background: rgba(240, 192, 64, 0.1);
-    padding: 0.25rem 0.7rem;
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(240, 192, 64, 0.25);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
   }
-  .ach-title {
-    font-family: "Outfit", sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.6rem;
-    line-height: 1.3;
+  .sponsor-link {
+    display: inline-block;
+    opacity: 0.7;
+    transition: opacity 0.25s;
   }
-  .ach-desc {
-    font-size: 0.88rem;
-    color: rgba(196, 160, 245, 0.7);
-    line-height: 1.65;
+  .sponsor-link:hover { opacity: 1; }
+  .sponsor-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+  .sponsor-tagline {
+    font-size: 0.85rem;
+    color: rgba(200,180,255,0.4);
+    line-height: 1.6;
+    max-width: 400px;
   }
 
-  /* ─── TEAM ────────────────────────────────────────────────────── */
+  /* ══════════════════════════════════════════════════════════════
+     TEAM
+  ══════════════════════════════════════════════════════════════ */
   .team-section {
-    background: var(--dark);
+    background: #060606;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 6rem 0;
   }
 
   .team-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.07);
   }
 
   .member-card {
-    overflow: hidden;
-    padding: 0;
+    padding: 1.75rem 1.5rem;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background 0.25s;
     transition-delay: var(--delay, 0s);
+    cursor: default;
   }
+  .member-card:nth-child(4n) { border-right: none; }
+  .member-card:nth-child(n+5) { border-bottom: none; }
+  .member-card:hover { background: rgba(224,32,32,0.05); }
 
-  .member-img-wrap {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-  }
-  .member-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    transition: transform 0.5s ease;
-  }
-  .member-card:hover .member-img-wrap img {
-    transform: scale(1.06);
-  }
-  .member-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(10, 3, 20, 0.85) 100%
-    );
-  }
-
-  .member-info {
-    padding: 1.25rem;
-  }
-  .member-grade {
-    font-size: 0.7rem;
+  .member-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--yellow-gold);
-    margin-bottom: 0.3rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.18);
   }
+  .member-info { flex: 1; }
   .member-name {
-    font-family: "Outfit", sans-serif;
-    font-size: 1.05rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.2rem;
-  }
-  .member-title {
-    font-family: "Outfit", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--purple-light);
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.25;
   }
   .member-role {
-    font-size: 0.78rem;
-    color: rgba(196, 160, 245, 0.6);
-    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    color: #E02020;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
   }
-  .member-bio {
-    font-size: 0.82rem;
-    color: rgba(196, 160, 245, 0.65);
-    line-height: 1.6;
+  .member-org {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.2);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
-  /* ─── GALLERY ─────────────────────────────────────────────────── */
+  /* ══════════════════════════════════════════════════════════════
+     GALLERY
+  ══════════════════════════════════════════════════════════════ */
   .gallery-section {
-    background: var(--dark-mid);
+    background: #0A0A0A;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 6rem 0;
   }
 
   .gallery-featured {
-    margin-bottom: 1.25rem;
-  }
-
-  .gallery-frame {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
     position: relative;
-    box-shadow: var(--shadow-card);
-    background: var(--dark-card);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background: #111;
   }
-  .gallery-frame img {
+  .gallery-featured img {
     width: 100%;
-    height: 500px;
+    height: 560px;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
   }
-  .gallery-frame:hover img {
-    transform: scale(1.02);
-  }
-  .gallery-caption {
+  .gallery-featured:hover img { transform: scale(1.02); }
+
+  .gallery-featured-bar {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(to top, rgba(10, 3, 20, 0.9), transparent);
-    font-family: "Outfit", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(to top, rgba(6,6,6,0.85), transparent);
+  }
+  .gallery-count {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.45);
+  }
+  .gallery-alt {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    font-family: 'Space Grotesk', sans-serif;
+    max-width: 50%;
+    text-align: right;
   }
 
-  .gallery-grid {
+  .gallery-thumbs {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 0.75rem;
+    gap: 4px;
   }
-
-  .gallery-thumb {
-    position: relative;
-    border-radius: var(--radius-md);
+  .gthumb {
+    aspect-ratio: 4/3;
     overflow: hidden;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.25s ease;
+    border: none;
     padding: 0;
     background: none;
-    aspect-ratio: 4/3;
+    cursor: pointer;
+    position: relative;
+    outline: none;
   }
-  .gallery-thumb img {
+  .gthumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
+    filter: brightness(0.65);
   }
-  .gallery-thumb:hover img {
-    transform: scale(1.08);
+  .gthumb:hover img, .gthumb.active img {
+    transform: scale(1.06);
+    filter: brightness(1);
   }
-  .gallery-thumb.active {
-    border-color: var(--yellow-gold);
-    box-shadow: 0 0 16px rgba(240, 192, 64, 0.4);
-  }
-  .gallery-thumb.active img {
-    transform: scale(1.04);
-  }
-
-  .thumb-overlay {
+  .gthumb.active::after {
+    content: '';
     position: absolute;
     inset: 0;
-    background: rgba(10, 3, 20, 0.45);
-    display: flex;
-    align-items: flex-end;
-    padding: 0.4rem 0.5rem;
-    transition: background 0.2s ease;
-    opacity: 0;
-  }
-  .gallery-thumb:hover .thumb-overlay,
-  .gallery-thumb.active .thumb-overlay {
-    opacity: 1;
-    background: rgba(10, 3, 20, 0.55);
-  }
-  .thumb-overlay span {
-    font-family: "Outfit", sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.2;
+    border: 2px solid #E02020;
+    pointer-events: none;
   }
 
-  /* ─── VIDEOS ──────────────────────────────────────────────────── */
+  /* ══════════════════════════════════════════════════════════════
+     VIDEOS
+  ══════════════════════════════════════════════════════════════ */
   .videos-section {
-    background: var(--dark);
+    background: #060606;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 6rem 0;
   }
 
   .videos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .video-card {
-    overflow: hidden;
-    padding: 0;
-    transition-delay: var(--delay, 0s);
+    gap: 4px;
   }
 
   .video-wrap {
-    position: relative;
-    width: 100%;
     aspect-ratio: 16/9;
-    background: #000;
+    background: #111;
     overflow: hidden;
+    position: relative;
+    transition-delay: var(--delay, 0s);
   }
-
-  .video-player {
+  .video-wrap video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    border: none;
-    outline: none;
   }
 
-  .video-info {
-    padding: 1.25rem;
-  }
-  .video-title {
-    font-family: "Outfit", sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-  .video-desc {
-    font-size: 0.85rem;
-    color: rgba(196, 160, 245, 0.65);
-    line-height: 1.6;
-    margin-bottom: 0;
-  }
-
-  /* ─── CONTACT ─────────────────────────────────────────────────── */
+  /* ══════════════════════════════════════════════════════════════
+     CONTACT
+  ══════════════════════════════════════════════════════════════ */
   .contact-section {
-    background: var(--dark-mid);
+    background: #0A0A0A;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 6rem 0;
   }
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
     align-items: start;
   }
 
-  .contact-cards {
+  .contact-list {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
-
-  .contact-item {
+  .contact-row {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    justify-content: space-between;
     gap: 1rem;
-    padding: 1rem 1.25rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     text-decoration: none;
-    color: inherit;
+    transition: border-color 0.2s;
   }
-  .contact-item strong {
-    display: block;
-    font-family: "Outfit", sans-serif;
-    font-size: 0.9rem;
+  a.contact-row:hover {
+    border-bottom-color: rgba(224,32,32,0.4);
+  }
+  .contact-row-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
     font-weight: 700;
-    color: #fff;
-  }
-  .contact-item p {
-    font-size: 0.82rem;
-    color: rgba(196, 160, 245, 0.7);
-    margin: 0;
-  }
-
-  .contact-icon {
-    width: 40px;
-    height: 40px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
     flex-shrink: 0;
-    background: rgba(107, 53, 196, 0.25);
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--purple-light);
   }
-  .contact-icon svg {
-    width: 18px;
-    height: 18px;
+  .contact-row-val {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    text-align: right;
+    line-height: 1.4;
+    transition: color 0.2s;
   }
-  a.contact-item:hover .contact-icon {
-    background: rgba(240, 192, 64, 0.15);
-    color: var(--yellow-gold);
-  }
+  a.contact-row:hover .contact-row-val { color: #fff; }
 
   /* Form */
   .contact-form {
-    padding: 2.25rem;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2.5rem;
   }
-  .form-title {
-    font-family: "Outfit", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
+  .form-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
     color: #fff;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.01em;
   }
-
   .form-alert {
     padding: 0.75rem 1rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.88rem;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+    border-radius: 2px;
   }
-  .form-alert.success {
-    background: rgba(52, 211, 153, 0.1);
-    border: 1px solid rgba(52, 211, 153, 0.3);
+  .form-alert.ok {
+    background: rgba(52,211,153,0.08);
+    border: 1px solid rgba(52,211,153,0.25);
     color: #6ee7b7;
   }
-  .form-alert.error {
-    background: rgba(248, 113, 113, 0.1);
-    border: 1px solid rgba(248, 113, 113, 0.3);
-    color: #fca5a5;
+  .form-alert.err {
+    background: rgba(224,32,32,0.08);
+    border: 1px solid rgba(224,32,32,0.25);
+    color: #ffaaaa;
   }
-
-  .form-group {
+  .form-field {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
     margin-bottom: 1.1rem;
   }
-  .form-group label {
-    font-family: "Outfit", sans-serif;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: rgba(196, 160, 245, 0.8);
-    letter-spacing: 0.05em;
+  .form-field label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
   }
-  .form-group input,
-  .form-group textarea {
-    background: rgba(45, 10, 92, 0.3);
-    border: 1px solid rgba(107, 53, 196, 0.35);
-    border-radius: var(--radius-sm);
+  .form-field input,
+  .form-field textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
     padding: 0.8rem 1rem;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.92rem;
     color: #fff;
     outline: none;
-    transition:
-      border-color 0.2s ease,
-      background 0.2s ease;
+    transition: border-color 0.2s;
     resize: vertical;
   }
-  .form-group input::placeholder,
-  .form-group textarea::placeholder {
-    color: rgba(155, 103, 232, 0.45);
-  }
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: var(--purple-light);
-    background: rgba(74, 26, 140, 0.25);
-  }
+  .form-field input::placeholder,
+  .form-field textarea::placeholder { color: rgba(255,255,255,0.2); }
+  .form-field input:focus,
+  .form-field textarea:focus { border-color: rgba(224,32,32,0.5); }
 
   .submit-btn {
     width: 100%;
     justify-content: center;
     margin-top: 0.5rem;
+    border-radius: 2px;
   }
 
-  /* ─── Responsive ──────────────────────────────────────────────── */
+  /* ── Keyframes ──────────────────────────────────────────────── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+  @keyframes grow-bar {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50%       { transform: scaleY(0.5); opacity: 1; }
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
   @media (max-width: 1100px) {
-    .team-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .achievements-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .member-card:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.07); }
+    .member-card:nth-child(2n) { border-right: none; }
+    .member-card:nth-child(n+5) { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .member-card:nth-child(n+7) { border-bottom: none; }
   }
 
   @media (max-width: 900px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
-    .about-img-col {
-      order: -1;
-    }
-    .gallery-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .gallery-frame img {
-      height: 360px;
-    }
-    .videos-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-    .video-wrap {
-      aspect-ratio: 16/9;
-    }
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
+    .about-split { grid-template-columns: 1fr; min-height: auto; }
+    .about-img-side { height: 420px; }
+    .about-text-side { padding: 3.5rem 2.5rem; }
+    .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+    .gallery-featured img { height: 380px; }
+    .videos-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
   }
 
-  @media (max-width: 600px) {
-    .hero-stats {
-      gap: 1rem;
-    }
-    .team-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-    .achievements-grid {
-      grid-template-columns: 1fr;
-    }
-    .videos-grid {
-      grid-template-columns: 1fr;
-    }
-    .gallery-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .gallery-frame img {
-      height: 280px;
-    }
+  @media (max-width: 640px) {
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .hstat-rule { display: none; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+    .gallery-featured img { height: 280px; }
+    .videos-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: clamp(3rem, 12vw, 5rem); }
+    .contact-form { padding: 1.75rem; }
   }
 
-  @media (max-width: 400px) {
-    .team-grid {
-      grid-template-columns: 1fr;
-    }
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  @media (max-width: 420px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .member-card:nth-child(n) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .member-card:last-child { border-bottom: none; }
   }
 </style>

@@ -11,12 +11,11 @@
   });
 
   const navLinks = [
-    { href: '#about',        label: 'About' },
-    { href: '#achievements', label: 'Achievements' },
-    { href: '#team',         label: 'Team' },
-    { href: '#gallery',      label: 'Gallery' },
-    { href: '#videos',       label: 'Videos' },
-    { href: '#contact',      label: 'Contact' },
+    { href: '#about',   label: 'About' },
+    { href: '#team',    label: 'Team' },
+    { href: '#gallery', label: 'Gallery' },
+    { href: '#videos',  label: 'Videos' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   function closeMenu() { mobileOpen = false; }
@@ -26,24 +25,7 @@
   <div class="nav-inner container">
     <!-- Logo -->
     <a href="#hero" class="nav-logo" on:click={closeMenu}>
-      <div class="logo-icon">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M16 2L20 12L16 10L12 12L16 2Z" fill="url(#lg1)"/>
-          <path d="M16 10L20 12L22 28L16 24L10 28L12 12L16 10Z" fill="url(#lg2)"/>
-          <path d="M10 28L13 22L16 24L16 30L10 28Z" fill="#F0C040"/>
-          <path d="M22 28L19 22L16 24L16 30L22 28Z" fill="#F0C040"/>
-          <defs>
-            <linearGradient id="lg1" x1="16" y1="2" x2="16" y2="12" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFD700"/>
-              <stop offset="1" stop-color="#F5A623"/>
-            </linearGradient>
-            <linearGradient id="lg2" x1="16" y1="10" x2="16" y2="28" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#9B67E8"/>
-              <stop offset="1" stop-color="#4A1A8C"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+      <img src="/logo.png" alt="Matador Rocketry" class="logo-img" />
       <div class="logo-text">
         <span class="logo-main">Matador Rocketry</span>
         <span class="logo-sub">MVHS • ARC</span>
@@ -100,17 +82,17 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 1.25rem 0;
+    padding: 1.1rem 0;
     transition: all 0.35s ease;
   }
 
   .navbar.scrolled {
-    background: rgba(10, 3, 20, 0.92);
+    background: rgba(6, 6, 6, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(107, 53, 196, 0.25);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(224, 32, 32, 0.2);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5);
   }
 
   .nav-inner {
@@ -123,20 +105,23 @@
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.7rem;
     text-decoration: none;
     flex-shrink: 0;
   }
 
-  .logo-icon {
-    width: 36px;
-    height: 36px;
-    filter: drop-shadow(0 0 8px rgba(240,192,64,0.5));
+  .logo-img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(224, 32, 32, 0.5));
     transition: filter 0.3s ease;
   }
-  .nav-logo:hover .logo-icon { filter: drop-shadow(0 0 14px rgba(240,192,64,0.9)); }
+  .nav-logo:hover .logo-img {
+    filter: drop-shadow(0 0 12px rgba(224, 32, 32, 0.85));
+  }
 
-  .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
   .logo-main {
     font-family: 'Outfit', sans-serif;
     font-size: 1rem;
@@ -146,17 +131,17 @@
   }
   .logo-sub {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--yellow-gold, #F0C040);
+    color: #E02020;
   }
 
   /* Nav links */
   .nav-links {
     display: flex;
-    gap: 0.25rem;
+    gap: 0.15rem;
     list-style: none;
     margin-left: auto;
   }
@@ -165,9 +150,9 @@
     font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.75);
     text-decoration: none;
-    padding: 0.5rem 0.85rem;
+    padding: 0.5rem 0.9rem;
     border-radius: 8px;
     transition: all 0.2s ease;
     position: relative;
@@ -179,12 +164,12 @@
     left: 50%;
     right: 50%;
     height: 2px;
-    background: var(--yellow-gold, #F0C040);
+    background: #E02020;
     border-radius: 1px;
     transition: all 0.25s ease;
   }
   .nav-link:hover { color: #fff; }
-  .nav-link:hover::after { left: 0.85rem; right: 0.85rem; }
+  .nav-link:hover::after { left: 0.9rem; right: 0.9rem; }
 
   /* CTA */
   .nav-cta {
@@ -219,9 +204,9 @@
 
   /* Mobile menu */
   .mobile-menu {
-    background: rgba(10, 3, 20, 0.97);
+    background: rgba(6, 6, 6, 0.98);
     backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(107, 53, 196, 0.25);
+    border-top: 1px solid rgba(224, 32, 32, 0.2);
     padding: 1rem 1.5rem 1.5rem;
     animation: slideDown 0.3s ease;
   }
@@ -237,7 +222,7 @@
     border-radius: 8px;
     transition: all 0.2s ease;
   }
-  .mobile-link:hover { background: rgba(107,53,196,0.2); color: #fff; }
+  .mobile-link:hover { background: rgba(224,32,32,0.12); color: #fff; }
   .mobile-cta { margin-top: 0.5rem; text-align: center; }
 
   @keyframes slideDown {
